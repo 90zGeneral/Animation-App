@@ -16,12 +16,46 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame1.png" translatesAutoresizingMaskIntoConstraints="NO" id="wUy-da-7c5">
+                                <rect key="frame" x="40" y="74" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="IUv-pC-4oJ"/>
+                                    <constraint firstAttribute="width" constant="240" id="Kqx-3H-rJB"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQT-v2-nWo">
+                                <rect key="frame" x="110" y="345" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ZpZ-rs-3MK"/>
+                                    <constraint firstAttribute="width" constant="100" id="zii-aS-wcP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Animate"/>
+                                <connections>
+                                    <action selector="animate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="91k-Rx-7K3"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aQT-v2-nWo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VwI-AW-fBc"/>
+                            <constraint firstItem="aQT-v2-nWo" firstAttribute="top" secondItem="wUy-da-7c5" secondAttribute="bottom" constant="31" id="XRC-r3-iBC"/>
+                            <constraint firstItem="wUy-da-7c5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="54" id="Z2V-yT-R3z"/>
+                            <constraint firstItem="wUy-da-7c5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qcP-lU-Xsw"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="animateButton" destination="aQT-v2-nWo" id="pjn-5O-wjC"/>
+                        <outlet property="animatedImage" destination="wUy-da-7c5" id="Iht-td-mfQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="frame1.png" width="49" height="86"/>
+    </resources>
 </document>
