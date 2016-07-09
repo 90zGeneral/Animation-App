@@ -21,7 +21,8 @@ class ViewController: UIViewController {
         
         //Execute only if animationStopped is true
         if animationStopped {
-        
+            
+            //Timer will continuously repeat the process of calling the doAnimation method every 0.2 seconds
             timer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: #selector(self.doAnimation), userInfo: nil, repeats: true)
             
             //Update the title and color of the button's text
@@ -41,12 +42,10 @@ class ViewController: UIViewController {
             animationStopped = true
             
         }
-        print(animatedImage.center.x)
-        print(animatedImage.center.y)
         
     }
     
-    //This method is called upon button clicked
+    //This method corresponds to the timer
     func doAnimation() {
         
         //To determine what the counter's value should be on every iteration of the timer
@@ -55,19 +54,9 @@ class ViewController: UIViewController {
         }else {
             counter += 1
         }
-        
+
         //Update the image based on the counter's value
         animatedImage.image = UIImage(named: "frame\(counter).png")
-        
-        if animatedImage.center.x < 250 && animatedImage.center.y == 105 {
-            animatedImage.center.x += 2
-        }else if animatedImage.center.x == 250 && animatedImage.center.y < 500 {
-            animatedImage.center.y += 5
-        }else if animatedImage.center.y == 500 && animatedImage.center.x > 60 {
-            animatedImage.center.x -= 2
-        }else {
-            animatedImage.center.y -= 5
-        }
 
     }
 
@@ -79,25 +68,19 @@ class ViewController: UIViewController {
         animateButton.setTitleColor(UIColor.greenColor(), forState: .Normal)
         
     }
-    
-    //This method is called right before the view is displayed
-    override func viewDidLayoutSubviews() {
+
+    override func viewDidAppear(animated: Bool) {
         
         //Change the position of the image and make its height and width invisible
         animatedImage.frame = CGRectMake(10, 30, 100, 150)
         
-    }
-
-    override func viewDidAppear(animated: Bool) {
-        
-        //Bring back the image in 1 second when view appears and place it back in its original position
+        //Fade in the image from top left corner in 1 second when view appears and place it back in its original position
         UIView.animateWithDuration(1) {
             
             //Reset the x and y coordinates along with the height and width of the image to its original frame(size & position)
             self.animatedImage.frame = CGRectMake(40, 74, 240, 240)
 
         }
-        print(animatedImage)
 
     }
 
@@ -105,7 +88,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
