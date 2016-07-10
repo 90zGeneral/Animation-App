@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         
         //Execute only if animationStopped is true
         if animationStopped {
-            
+
             //Timer will continuously repeat the process of calling the doAnimation method every 0.2 seconds
             timer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: #selector(self.doAnimation), userInfo: nil, repeats: true)
             
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         
         //Change the position of the image and make its height and width invisible
-        animatedImage.frame = CGRectMake(10, 30, 100, 150)
+        animatedImage.frame = CGRectMake(10, 30, 0, 0)
         
         //Fade in the image from top left corner in 1 second when view appears and place it back in its original position
         UIView.animateWithDuration(1) {
